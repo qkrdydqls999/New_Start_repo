@@ -1,0 +1,12 @@
+li {
+  color: aqua;
+  font-size: 15px;
+}
+
+ol li {
+  color: green;
+}
+ol li {
+  color: blue;
+}
+/* 같은 영역에 대한 css는 뒤에있는게 우선선 */
