@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex(Flexbox)</title>
+    <style>
+      img {
+        width: 100px;
+      }
+      .flex-container{
+        display: flex;
+        flex-direction: row;
+      }
+      .flex-item{
+        /* flex 기능이 아닌 시각적 표현현 */
+        background-color: yellow;
+        border: 1px solid black;
+        width: 100px;
+        height: 100px;
+      }
+      .row-reverse{
+        flex-direction: row-reverse;
+      }
+      .column{
+        flex-direction: column;
+      }
+      .row.reverse{
+        flex-direction: row-reverse;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p style="margin: 0 40px; text-align: center">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum quisquam
+        magni delectus ut. Dolor, nobis nam. Autem necessitatibus earum
+        obcaecati consequatur quidem, quasi dolores, soluta aspernatur eveniet,
+        laboriosam doloremque velit!
+      </p>
+      <div style="text-align: center">
+        <img src="space_cat.png" alt="우주고양이" /> </div>
+    </div>
+    <!-- margin을 이용한 정렬렬 -->
+      <div>
+        <!-- + position, float, 등등.. 전부 힘들고 직관적이지 않음음 -->
+       <!-- 가로는 괜찮찮은데 세로는... -->
+      <!-- 2.하위 요소간의 관계에 대한 정의가 어려움 -->
+       <!-- 컨테이너와 아이템 -->
+       <img style="display: block; margin: 0 auto" 
+        src="space_cat.png" 
+        alt="우주고양이" 
+        /> 
+      </div>
+        <div class="flex-container">
+            <div class="flex-item">1</div>
+            <div class="flex-item">2</div>
+            <div class="flex-item">3</div>
+            <div class="flex-item">4</div>
+            <div class="flex-item">5</div>
+        </div>
+        <div class="flex-container row">
+            <div class="flex-item"></div>
+            <div class="flex-item"></div>
+            <div class="flex-item"></div>
+            <div class="flex-item"></div>
+            <div class="flex-item"></div>
+        </div>
+        <div class="flex-container row reverse">
+            <div class="flex-item"></div>
+            <div class="flex-item"></div>
+            <div class="flex-item"></div>
+            <div class="flex-item"></div>
+            <div class="flex-item"></div>
+        </div>
+    </div>
+        <div class="flex-container column">
+            <div class="flex-item"></div>
+            <div class="flex-item"></div>
+            <div class="flex-item"></div>
+            <div class="flex-item"></div>
+            <div class="flex-item"></div>
+        </div>
+    </div>
+        <div class="flex-container column reverse">
+            <div class="flex-item"></div>
+            <div class="flex-item"></div>
+            <div class="flex-item"></div>
+            <div class="flex-item"></div>
+            <div class="flex-item"></div>
+        </div>
+        <div 
+        class="flex-container" 
+        style=" /* */
+            height: 500px; 
+            justify-content: center; 
+            align-items: center; 
+            flex-wrap: wrap;
+            gap: 5px; 
+        ">
+            <div class="flex-item">1</div>
+            <div class="flex-item">2</div>
+            <div class="flex-item">3</div>
+            <div class="flex-item">1</div>
+            <div class="flex-item">2</div>
+            <div class="flex-item">3</div>
+            <div class="flex-item">1</div>
+            <div class="flex-item">2</div>
+            <div class="flex-item">3</div>
+            <div class="flex-item">1</div>
+            <div class="flex-item">2</div>
+            <div class="flex-item">3</div>
+            <div class="flex-item">1</div>
+            <div class="flex-item">2</div>
+            <div class="flex-item">3</div>
+            <div class="flex-item">1</div>
+            <div class="flex-item">2</div>
+            <div class="flex-item">3</div>
+        </div>
+        <div style="display: flex; height: 200px; background-color: #659785;
+        align-items: center;
+        /* flex-direction: column; */
+        flex-wrap: wrap-reverse;
+        ">
+            <div style="background-color: bisque;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis ipsum porro eum mollitia perferendis id voluptate labore nemo, quod veniam magni quia ipsam totam nam dolore a dolorum dolor ex.</div>
+            <div style="background-color: gray;">헤헤</div>
+        </div>
+    </div>
+  </body>
+</html>
