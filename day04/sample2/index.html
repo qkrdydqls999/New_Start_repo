@@ -1,0 +1,140 @@
+아래는 반응형 디자인을 고려하여 **Flexbox**와 **Container**를 사용하여 만든
+커뮤니티 사이트의 `index.html` 예시입니다. 이 예시에서는 **Bootstrap CDN**을
+사용하고, **OG 태그**, **Favicon**, **Webfont** 추가 위치를 주석으로 표시해
+두었습니다. ```html
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>커뮤니티 사이트</title>
+
+    <!-- OG 태그 추가 위치 -->
+    <meta property="og:title" content="커뮤니티 사이트" />
+    <meta
+      property="og:description"
+      content="나만의 커뮤니티를 만들어 보세요. 다양한 이야기를 나누고 소통할 수 있는 공간!"
+    />
+    <meta property="og:image" content="your-image-url.jpg" />
+    <meta property="og:url" content="https://www.yourcommunitysite.com" />
+
+    <!-- Favicon 추가 위치 -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <!-- Webfont 추가 위치 -->
+    <!-- 예: Google Fonts 추가 (Roboto) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CDN -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body style="font-family: 'Roboto', sans-serif">
+    <!-- 네비게이션 바 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">커뮤니티</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">홈</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">게시판</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">프로필</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">로그인</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 메인 콘텐츠 -->
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-12 col-md-8">
+          <div class="card mb-4">
+            <div class="card-header">최신 게시글</div>
+            <div class="card-body">
+              <h5 class="card-title">여러분의 이야기를 들려주세요!</h5>
+              <p class="card-text">
+                다양한 주제에 대해 자유롭게 이야기할 수 있는 커뮤니티
+                공간입니다. 지금 바로 참여해 보세요!
+              </p>
+              <a href="#" class="btn btn-primary">게시글 작성하기</a>
+            </div>
+          </div>
+
+          <div class="card mb-4">
+            <div class="card-header">최근 활동</div>
+            <div class="card-body">
+              <ul>
+                <li>홍길동님이 "새로운 소식"에 댓글을 달았습니다.</li>
+                <li>김철수님이 "공지사항"을 업로드 했습니다.</li>
+                <li>이영희님이 "자유 게시판"에 글을 작성했습니다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 사이드바 -->
+        <div class="col-12 col-md-4">
+          <div class="card mb-4">
+            <div class="card-header">인기 게시글</div>
+            <div class="card-body">
+              <ul>
+                <li><a href="#">게시글 제목 1</a></li>
+                <li><a href="#">게시글 제목 2</a></li>
+                <li><a href="#">게시글 제목 3</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 푸터 -->
+    <footer class="bg-light text-center py-4">
+      <p>&copy; 2025 커뮤니티 사이트. 모든 권리 보유.</p>
+    </footer>
+
+    <!-- Bootstrap JS 및 Popper.js CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
+``` ### 설명: 1. **반응형 디자인**: `meta viewport` 태그를 추가하여 모바일
+디바이스에서도 잘 보이도록 설정했습니다. `col-12 col-md-8` 및 `col-12
+col-md-4`와 같은 **Bootstrap Grid** 시스템을 활용하여, 화면 크기에 따라
+레이아웃이 적절히 변경됩니다. 2. **네비게이션 바**: 모바일에서 화면을 작게 했을
+때, 토글 버튼을 눌러 네비게이션 메뉴를 열 수 있습니다. 3. **콘텐츠 영역**:
+**카드 컴포넌트**를 사용하여 콘텐츠를 깔끔하게 표시합니다. 각 카드에는 제목,
+텍스트, 버튼 등이 포함되어 있습니다. 4. **사이드바**: `col-md-4`를 사용하여 화면
+크기가 중간 이상일 때 사이드바가 표시되도록 했습니다. 5. **푸터**: 푸터는 화면
+하단에 고정되며, 모든 페이지에서 일관된 스타일로 표시됩니다. 6. **OG 태그**: 웹
+페이지가 소셜 미디어에 공유될 때, 어떻게 미리보기 정보가 나타날지 정의합니다. 7.
+**Favicon**: `favicon.ico`를 추가하여 브라우저 탭에 아이콘을 표시합니다. 8.
+**Webfont**: Google Fonts를 사용하여 **Roboto** 폰트를 적용할 수 있도록 링크를
+추가했습니다. 이 코드를 바탕으로, **Bootstrap**의 클래스를 활용하여 모바일에서도
+사용하기 편리한 커뮤니티 사이트를 만들 수 있습니다.
