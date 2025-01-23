@@ -1,80 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Git 실습</title>
-  </head>
-  <body>d
-    <p>위</p>
-    <p>공통부분</p>
-    <p>아래</p>
-  </body>
-</html>
+# Rebase
 
-# git_ex로 이동해서 진행
+## 브랜치 정리
 
-rm -rf .git
-git init
-git branch -M main
+git switch main
+git merge feature2
+git branch -d dev1 dev2 feature1 feature2
+git branch
+git log --oneline --graph --all
+
+## 커밋 만들기
+
+git switch -c feature
+git add . && git commit -m "hello world"
+git log --oneline --graph --all
+git switch main
+git add . && git commit -m "bye earth"
+
+## 리베이스 (무충돌)
+
+git switch feature
+git rebase main
+git log --oneline --graph --all
+
+## 리베이스 (충돌)
+
+### FF
+
+git log --oneline --graph --all
+git merge feature
+git log --oneline --graph --all
+
+### 실습준비
+
+git add . && git commit -m "javascript"
+git switch feature
+git add . && git commit -m "typescript"
+git log --oneline --graph --all
+
+### 충돌 리베이스
+
+git rebase main
+git add .
+git rebase --continue
+git log --oneline --graph --all
+
+### 충돌 (스킵 포함)
+
+git branch
+git switch main && git merge feature
+git log --oneline --graph --all
+
+git add . && git commit -m "네이버"
+git switch feature
+git add . && git commit -m "백준"
+git add . && git commit -m "프로그래머스"
+
+git rebase main
+git rebase --skip
+git add .
+git commit # :wq
+git rebase --continue
+git log --oneline --graph --all
+
+# reset & revert
+
+touch a.txt
+git add .
+git commit -m "a"
+git reset --mixed HEAD
+touch b.txt
 git add .
 git status
-
-# branch
-
-git branch dev
-git switch dev
-git branch -d dev
-git branch
-git switch -c dev
-git add . && git commit -m "change"
-git switch main
-git branch -d dev
-
-# git branch -D dev
-
-git config --global alias.lg "log --oneline --graph --all"
-
-# 악!!!! 빠트림 ㅠㅠㅠㅠㅠ
-
-# FF
-
-git branch
-git switch -c dev
-git add . && git commit -m "change"
+git reset --soft HEAD
+git status
+git reset --hard HEAD~1
+touch c.txt
+git add . && git commit -m "c"
 git log --oneline --graph --all
-git merge dev
-git branch -d dev
-
-# 3 way merge
-
-git branch dev1
-git branch dev2
-git branch
-git switch dev1
-git add . && git commit -m "위를 수정"
-git switch main
-git switch dev2
-git add . && git commit -m "아래를 수정"
+git revert HEAD~1 # :wq
 git log --oneline --graph --all
+git status
+git revert HEAD~1
+git revert HEAD
 
-# 새로운 커밋이 생성되면서 커밋 메시지를 생성하기 위해 vi 편집기로 돌입
+# amend
 
-# :wq (뭔가 입력모드 같은게 된것 같으면 esc키를 눌러보자)
-
-git merge dev1 # 나 지금 dev2인데 dev1과 차이점을 보고 필요한거 흡수하려고 근데 새로운 커밋 만들거임
+touch d.txt
+git add . && git commit -m "d.tx"
+git commit --amend
 git log --oneline --graph --all
-
-# merge conflict
-
-git branch feature1
-git branch feature2
-git branch
-git switch feature1
-git add . && git commit -m "공통부분 수정(f1)"
-git log --oneline --graph --all
-git switch feature2
-git add . && git commit -m "공통부분 수정(f2)"
-git merge feature1
-git add .
-git commit
+git log
+git commit --amend -m "tt.txt"
+git log
+git commit --amend --no-edit --date "1 day ago"
+git log
