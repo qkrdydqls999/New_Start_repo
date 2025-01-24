@@ -1,10 +1,11 @@
 name: schedule
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: #수동으로 돌려보는거
   schedule:
     - cron: "0 * * * *"
       # https://crontab.guru/
+      # 5분텀도 가능은 하지만 무료버전은 30분 이상의 텀을 두는게 좋음
 
 jobs:
   make-issue:
